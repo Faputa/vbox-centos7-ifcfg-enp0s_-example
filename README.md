@@ -11,6 +11,7 @@
 
 ifcfg-enp0s3需修改
 
+    ...
     ONBOOT=yes
 
 ifcfg-enp0s8需修改
