@@ -5,7 +5,7 @@
     类型：Linux  
     版本：Red Hat (64-bit)
 
-3. 设置网络
+2. 设置网络
 
     添加两张网卡
 
@@ -14,23 +14,23 @@
     | 网卡一 | ifcfg-enp0s3 | NAT模式       | 动态IP | 用于连接外网 |
     | 网卡二 | ifcfg-enp0s8 | Host-Only模式 | 静态IP | 用于外部连接 |
 
-4. 安装系统
+3. 安装系统
 
     1. 启动虚拟机
     2. 选择启动盘
 
-5. 切换到配置文件目录
+4. 修改网卡配置
+
+    切换到配置文件目录
 
         cd /etc/sysconfig/network-scripts/
 
-6. 修改网卡配置
-
-    ifcfg-enp0s3需修改
+    修改ifcfg-enp0s3
 
         ...
         ONBOOT=yes
 
-    ifcfg-enp0s8需修改，这里设置主机号是2
+    修改ifcfg-enp0s8，这里设置主机号是2
 
         ...
         BOOTPROTO=static
@@ -40,6 +40,6 @@
         NETMASK=255.255.255.0
         GATEWAY=192.168.56.1
 
-7. 重启网络
+5. 重启网络
 
         systemctl restart network
